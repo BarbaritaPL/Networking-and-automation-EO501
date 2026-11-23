@@ -1,0 +1,22 @@
+Security audit: University of Example - Main Campus (simulated)
+==========================================================================
+Rules examined: 13
+
+[HIGH  ] R05  student -> admin_servers tcp/3306
+          Students can reach 'admin_servers' (breaks least privilege)
+[HIGH  ] R06  guest -> staff tcp/445
+          Guest network can reach internal zone 'staff'
+[MEDIUM] R08  it_ops -> network_devices tcp/23
+          Unencrypted protocol Telnet (port 23) allowed
+[HIGH  ] R09  any -> admin_servers tcp/3389
+          Any source (including the internet) can reach 'admin_servers'
+[MEDIUM] R10  staff -> network_devices any/any
+          All ports open to internal zone 'network_devices'
+[HIGH  ] R12  guest -> vle_servers tcp/80
+          Guest network can reach internal zone 'vle_servers'
+[MEDIUM] R12  guest -> vle_servers tcp/80
+          Unencrypted protocol HTTP (port 80) allowed
+
+--------------------------------------------------------------------------
+Findings: 7  (HIGH: 4, MEDIUM: 3)
+Rules needing review: R05, R06, R08, R09, R10, R12

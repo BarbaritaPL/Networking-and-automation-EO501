@@ -1,0 +1,12 @@
+Activity 1 - Basic Firewall Rules
+----------------------------------------------------------------------
+10.10.20.15      port 443   -> ALLOW  (port 443 (HTTPS) is permitted)
+10.10.20.15      port 23    -> DENY   (port 23 is not in the allowed list (default deny))
+198.51.100.23    port 443   -> DENY   (source IP is on the block list)
+10.10.70.8       port 22    -> ALLOW  (port 22 (SSH) is permitted)
+10.10.20.40      port 22    -> DENY   (SSH is only allowed from the admin workstation)
+10.10.30.12      port 53    -> ALLOW  (port 53 (DNS) is permitted)
+203.0.113.99     port 53    -> DENY   (source IP is on the block list)
+10.10.30.12      port 3389  -> DENY   (port 3389 is not in the allowed list (default deny))
+----------------------------------------------------------------------
+3 allowed, 5 denied

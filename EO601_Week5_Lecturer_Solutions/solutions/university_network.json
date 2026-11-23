@@ -1,0 +1,28 @@
+{
+  "network": "University of Example - Main Campus (simulated)",
+  "zones": {
+    "student":         {"subnet": "10.10.20.0/24", "vlan": 20, "description": "Student laptops and lab PCs"},
+    "staff":           {"subnet": "10.10.30.0/24", "vlan": 30, "description": "Academic staff devices"},
+    "admin_servers":   {"subnet": "10.10.40.0/24", "vlan": 40, "description": "Finance, HR and student records servers"},
+    "vle_servers":     {"subnet": "10.10.50.0/24", "vlan": 50, "description": "Virtual Learning Environment web servers"},
+    "guest":           {"subnet": "10.10.60.0/24", "vlan": 60, "description": "Visitor Wi-Fi"},
+    "it_ops":          {"subnet": "10.10.70.0/24", "vlan": 70, "description": "IT operations workstations"},
+    "network_devices": {"subnet": "10.10.99.0/24", "vlan": 99, "description": "Switch and router management interfaces"},
+    "internet":        {"subnet": "0.0.0.0/0",     "vlan": null, "description": "Everything outside the campus"}
+  },
+  "rules": [
+    {"id": "R01", "action": "allow", "src": "student",  "dst": "vle_servers",     "protocol": "tcp", "port": 443,   "comment": "Students use the VLE"},
+    {"id": "R02", "action": "allow", "src": "staff",    "dst": "vle_servers",     "protocol": "tcp", "port": 443,   "comment": "Staff use the VLE"},
+    {"id": "R03", "action": "allow", "src": "staff",    "dst": "admin_servers",   "protocol": "tcp", "port": 443,   "comment": "Staff use the records web portal"},
+    {"id": "R04", "action": "allow", "src": "it_ops",   "dst": "admin_servers",   "protocol": "tcp", "port": 22,    "comment": "IT manages servers over SSH"},
+    {"id": "R05", "action": "allow", "src": "student",  "dst": "admin_servers",   "protocol": "tcp", "port": 3306,  "comment": "Temporary: student project database"},
+    {"id": "R06", "action": "allow", "src": "guest",    "dst": "staff",           "protocol": "tcp", "port": 445,   "comment": "Visitors print via staff file share"},
+    {"id": "R07", "action": "allow", "src": "guest",    "dst": "internet",        "protocol": "tcp", "port": 443,   "comment": "Visitors browse the web"},
+    {"id": "R08", "action": "allow", "src": "it_ops",   "dst": "network_devices", "protocol": "tcp", "port": 23,    "comment": "Legacy switch management"},
+    {"id": "R09", "action": "allow", "src": "any",      "dst": "admin_servers",   "protocol": "tcp", "port": 3389,  "comment": "Remote desktop for finance supplier"},
+    {"id": "R10", "action": "allow", "src": "staff",    "dst": "network_devices", "protocol": "any", "port": "any", "comment": "Added during an outage, never removed"},
+    {"id": "R11", "action": "allow", "src": "student",  "dst": "internet",        "protocol": "any", "port": "any", "comment": "Students browse the web"},
+    {"id": "R12", "action": "allow", "src": "guest",    "dst": "vle_servers",     "protocol": "tcp", "port": 80,    "comment": "Open day VLE preview"},
+    {"id": "R13", "action": "deny",  "src": "any",      "dst": "any",             "protocol": "any", "port": "any", "comment": "Default deny"}
+  ]
+}

@@ -1,0 +1,27 @@
+# Simulated authentication log - EO601 Week 5, Activity 2
+# Format: DATE TIME SERVICE RESULT user=USERNAME src=SOURCE_IP
+2026-11-05 10:15:02 vpn FAIL user=admin src=203.0.113.10
+2026-11-05 10:15:05 vpn FAIL user=admin src=203.0.113.10
+2026-11-05 10:15:09 vpn FAIL user=test src=203.0.113.10
+2026-11-05 10:15:12 vpn FAIL user=guest src=203.0.113.10
+2026-11-05 10:15:16 vpn FAIL user=admin src=203.0.113.10
+2026-11-05 10:16:40 vle SUCCESS user=p.wright src=10.10.20.71
+2026-11-05 10:17:03 sshd FAIL user=netops src=10.10.70.8
+2026-11-05 10:17:10 sshd SUCCESS user=netops src=10.10.70.8
+2026-11-05 10:18:22 vle FAIL user=k.osei src=10.10.20.90
+2026-11-05 10:18:30 vle FAIL user=k.osei src=10.10.20.90
+2026-11-05 10:18:41 vle SUCCESS user=k.osei src=10.10.20.90
+2026-11-05 10:20:01 sshd FAIL user=root src=198.51.100.200
+2026-11-05 10:20:02 sshd FAIL user=root src=198.51.100.200
+2026-11-05 10:20:03 sshd FAIL user=root src=198.51.100.200
+2026-11-05 10:20:04 sshd FAIL user=root src=198.51.100.200
+2026-11-05 10:20:05 sshd FAIL user=root src=198.51.100.200
+2026-11-05 10:20:06 sshd FAIL user=root src=198.51.100.200
+this line is corrupted and should be skipped
+2026-11-05 10:22:15 vpn FAIL user=d.evans src=10.10.30.44
+2026-11-05 10:22:31 vpn FAIL user=d.evans src=10.10.30.44
+2026-11-05 10:22:50 vpn FAIL user=d.evans src=10.10.30.44
+2026-11-05 10:23:05 vpn FAIL user=d.evans src=10.10.30.44
+2026-11-05 10:23:20 vpn SUCCESS user=d.evans src=10.10.30.44
+2026-11-05 10:25:00 vle SUCCESS user=h.ali src=10.10.20.12
+2026-11-05 10:26:44 vpn FAIL user=admin src=203.0.113.10

@@ -1,0 +1,16 @@
+Activity 2 - Login Security Monitor
+--------------------------------------------------
+Valid records: 24   Skipped lines: 1
+Threshold: 4 failed attempts
+
+Failures per IP:
+  203.0.113.10     6
+  198.51.100.200   6
+  10.10.30.44      4
+  10.10.20.90      2
+  10.10.70.8       1
+
+SUSPICIOUS IP ADDRESSES:
+  [!] 203.0.113.10     6 failed attempts
+  [!] 198.51.100.200   6 failed attempts
+  [!] 10.10.30.44      4 failed attempts

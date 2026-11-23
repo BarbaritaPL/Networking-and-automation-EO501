@@ -1,0 +1,28 @@
+==============================================================================
+ EO601 Week 5 - Firewall Rule Simulator (educational simulation)
+==============================================================================
+#  Source          Destination   Proto Port  Result Rule / reason
+------------------------------------------------------------------------------
+1  10.10.20.15     10.10.50.10   tcp   443   ALLOW  R2: HTTPS to the VLE web server
+     (Student opens the VLE)
+2  10.10.20.15     10.10.40.5    tcp   22    DENY   Default: Implicit deny (no rule matched)
+     (Student tries SSH to an admin server)
+3  10.10.70.8      10.10.40.5    tcp   22    ALLOW  R3: SSH to admin servers - IT operations only
+     (IT engineer manages an admin server)
+4  203.0.113.45    10.10.50.10   tcp   443   ALLOW  R2: HTTPS to the VLE web server
+     (Student working from home uses the VLE)
+5  203.0.113.45    10.10.50.10   tcp   23    DENY   Default: Implicit deny (no rule matched)
+     (Telnet attempt from the internet)
+6  198.51.100.77   10.10.50.10   tcp   443   DENY   R1: Known malicious external range (block list)
+     (Block-listed address tries the VLE)
+7  10.10.30.12     10.10.0.53    udp   53    ALLOW  R4: Internal DNS lookups
+     (Lecturer's laptop resolves a website name)
+8  10.10.70.8      10.10.30.12   icmp  -     ALLOW  R5: Ping (ICMP) for IT troubleshooting
+     (IT engineer pings a staff laptop)
+9  10.10.20.15     10.10.40.20   tcp   3306  DENY   Default: Implicit deny (no rule matched)
+     (Student connects to the finance database)
+------------------------------------------------------------------------------
+Summary: 5 allowed, 4 denied, 9 packets checked
+
+Why this helps: only traffic that a rule explicitly permits gets through.
+Everything else - unknown ports, unexpected sources - is denied by default.

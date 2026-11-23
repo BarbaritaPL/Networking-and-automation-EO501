@@ -1,0 +1,26 @@
+================================================================
+ EO601 Week 5 - Login Security Report (educational simulation)
+================================================================
+Records analysed : 20
+Failed logins    : 14
+Alert threshold  : 2 failed attempts per IP
+
+Failed attempts per source IP
+----------------------------------------------------------------
+  203.0.113.66      7 failures   FLAGGED
+  198.51.100.23     3 failures   FLAGGED
+  10.10.20.58       2 failures   FLAGGED
+  10.10.30.12       1 failure    ok
+  10.10.60.105      1 failure    ok
+
+Security alerts
+----------------------------------------------------------------
+  [ALERT] 203.0.113.66 - 7 failures, usernames tried: admin, administrator, root
+          Several usernames tried: looks like password guessing.
+  [ALERT] 198.51.100.23 - 3 failures, usernames tried: s.jones
+          WARNING: a later login from this IP SUCCEEDED. Check that account.
+  [ALERT] 10.10.20.58 - 2 failures, usernames tried: l.chen
+          WARNING: a later login from this IP SUCCEEDED. Check that account.
+
+Suggested next steps: block or rate-limit flagged IPs at the firewall,
+lock or reset affected accounts, and confirm MFA is enabled.
